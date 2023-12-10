@@ -5,11 +5,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-body {font-family: '굴림체';}
-tr.header {background-color: lightblue;}
-tr.record {background-color: lightgreen;}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="./style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div align="center">
@@ -37,7 +34,7 @@ tr.record {background-color: lightgreen;}
 	</td></tr>
 <tr height="40"><th>연락처</th><td><input type="text" name="PHONE" size="10"/>
 	</td></tr>
-<tr height="40"><th>성 별</th><td>남<input type="radio" name="GENDER" value="M"/>,
+<tr height="40"><th>성 별</th><td>남<input type="radio" name="GENDER" value="M"/>
 	여<input type="radio" name="GENDER" value="F"/></td></tr>
 <tr height="40"><th>직 업</th><td><select name="JOB">
 		<option>회사원</option><option>학생</option><option>자영업</option>

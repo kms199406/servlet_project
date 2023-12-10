@@ -6,11 +6,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-body {font-family: '굴림체';}
-tr.header {background-color: lightblue;}
-tr.record {background-color: lightgreen;}
-</style></head>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="./style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
 <div align="center">
 <header>

@@ -14,19 +14,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import serv.PHON;
+import serv.IPAD;
 
 /**
- * Servlet implementation class ItemListServlet
+ * Servlet implementation class IpadListServlet
  */
-@WebServlet("/PhonListServlet")
-public class PhonListServlet extends HttpServlet {
+@WebServlet("/IpadListServlet")
+public class IpadListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PhonListServlet() {
+    public IpadListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,9 +35,9 @@ public class PhonListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String q="select * from phones";
+		String q="select * from ipadlist_tbl";
 		Connection con=null; Statement stmt=null; ResultSet rs=null;
-		ArrayList<PHON> phon = new ArrayList<PHON>();
+		ArrayList<IPAD> ipad = new ArrayList<IPAD>();
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection(
@@ -45,13 +45,14 @@ public class PhonListServlet extends HttpServlet {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(q);//select 실행
 			while(rs.next()) {
-				PHON item = new PHON();
-				item.setId(rs.getInt(1));
-				item.setCategory(rs.getString(2));
-				item.setProduct_name(rs.getString(3));
-				item.setBun(rs.getString(4));
-				item.setPicturl_url(rs.getString(5));
-				phon.add(item);
+				IPAD pad = new IPAD();
+				pad.setId(rs.getInt(1));
+				pad.setCategory(rs.getString(2));
+				pad.setProduct_name(rs.getString(3));
+				pad.setBun(rs.getString(4));
+				pad.setPicturl_url(rs.getString(5));
+				ipad.add(pad);
+				
 				/*
 				 * item.setItem_id(rs.getInt(1));//상품번호
 				 * item.setItem_name(rs.getString(2));//상품이름 item.setPrice(rs.getInt(3));//상품가격
@@ -67,18 +68,18 @@ public class PhonListServlet extends HttpServlet {
 				rs.close(); stmt.close(); con.close();
 			}catch(Exception e) {}
 		}
-		request.setAttribute("LIST", phon);
+		request.setAttribute("LIST", ipad);
 		int totalCount = getTotalItemCount();
 	
 		int pageCount = totalCount / 5;
 		System.out.print(pageCount);
 		if(pageCount % 5 != 0) pageCount++;
 		request.setAttribute("PAGES", pageCount);
-		RequestDispatcher rd = request.getRequestDispatcher("iphone.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("ipad.jsp");
 		rd.forward(request, response);
 	}
 	protected int getTotalItemCount() {
-		String select="select count(*) from phones";
+		String select="select count(*) from ipadlist_tbl";
 		int count = 0; 
 		Connection con=null; Statement stmt=null; ResultSet rs=null;
 		try {
@@ -96,7 +97,8 @@ public class PhonListServlet extends HttpServlet {
 			}catch(Exception e) {}
 		}
 		return count;
-	}
+	}	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -106,11 +108,3 @@ public class PhonListServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-

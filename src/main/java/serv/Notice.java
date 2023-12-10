@@ -2,7 +2,7 @@ package serv;
 
 public class Notice {
 	private Integer no;
-	private String tlyrddrytrye;
+	private String title;
 	private String content;
 	private String entry_date;
 	public Integer getNo() {
