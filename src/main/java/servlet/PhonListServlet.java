@@ -51,7 +51,7 @@ public class PhonListServlet extends HttpServlet {
 				item.setProduct_name(rs.getString(3));
 				item.setBun(rs.getString(4));
 				item.setPicturl_url(rs.getString(5));
-				phon.add(i);
+				phon.add(item);
 				/*
 				 * item.setItem_id(rs.getInt(1));//상품번호
 				 * item.setItem_name(rs.getString(2));//상품이름 item.setPrice(rs.getInt(3));//상품가격
