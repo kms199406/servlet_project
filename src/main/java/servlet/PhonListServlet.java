@@ -83,7 +83,7 @@ public class PhonListServlet extends HttpServlet {
 	protected int getTotalItemCount() {
 		String select="select count(*) from phones";
 		int count = 0; 
-		Connection con=null; Statement stmt=null; ResultSet rs=null;
+		Connection con=; Statement stmt=null; ResultSet rs=null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection(
