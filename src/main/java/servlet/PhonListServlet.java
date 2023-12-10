@@ -42,7 +42,25 @@ public class PhonListServlet extends HttpServlet {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection(
 				"jdbc:oracle:thin:@//localhost:1521/xe","hr","hr");
+<<<<<<< HEAD
 			stmt = con.crere_rul(rs.getString(5));//상품이미지 이름 list.add(item);//DTO를
+=======
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(q);//select 실행
+			while(rs.next()) {
+				PHON item = new PHON();
+				item.setId(rs.getInt(1));
+				item.setCategory(rs.getString(2));
+				item.setProduct_name(rs.getString(3));
+				item.setBun(rs.getString(4));
+				item.setPicturl_url(rs.getString(5));
+				phon.add(item);
+				/*
+				 * item.setItem_id(rs.getInt(1));//상품번호
+				 * item.setItem_name(rs.getString(2));//상품이름 item.setPrice(rs.getInt(3));//상품가격
+				 * item.setDescription(rs.getString(4));//상품설명
+				 * item.setPicture_rul(rs.getString(5));//상품이미지 이름 list.add(item);//DTO를
+>>>>>>> 7f6a7def7250ca27fcbaa9e7b5713508c2d3306e
 				 * ArrayList에 저장
 				 */			}
 		}catch(Exception e) {
